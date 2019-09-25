@@ -9,13 +9,13 @@ Registration and submission portal for Megathon Onsite 2019
 
 *Prerequisites: You'll need a copy of `local_settings.py`, which happens to contain sensitive information.*
 
-1. Clone the repository and navigate to its root
+1. Clone the repository and navigate to its root.
 ```(shell)
 $ git clone https://github.com/IIIT-ECell/megathon-portal.git
 $ cd path/to/repository/root
 ```
 
-2. Setup and activate a virtual environment
+2. Setup and activate a virtual environment.
 ```(shell)
 $ python3 -m venv venv
 $ source venv/bin/activate
@@ -42,7 +42,7 @@ $ python3 manage.py runserver
 - Make sure `local_settings.py`, your virtual environment files and pycache files are not pushed to GitHub.
 - Make sure the database and the migrations stay in sync.
 - Keep the database file small, do not add unnecessary records.
-- Make sure you update requirements.txt after installing any new packages.
+- Make sure you update `requirements.txt` after installing any new packages.
 ```(shell)
 $ pip3 freeze > requirements.txt
 ```
