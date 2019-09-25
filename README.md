@@ -15,10 +15,12 @@ $ git clone https://github.com/IIIT-ECell/megathon-portal.git
 $ cd path/to/repository/root
 ```
 
-2. Setup a virtual environment
+2. Setup and activate a virtual environment
 ```(shell)
 $ python3 -m venv venv
+$ source venv/bin/activate
 ```
+ *(Run `$ deactivate` to deactivate the virtual environment when you are done.)*
 
 3. Install required packages
 ```(shell)
