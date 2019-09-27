@@ -24,6 +24,7 @@ body {
 
 .row {
     align-items: center;
+    margin: 0 auto;
 }
 
 .logo-container {
@@ -43,4 +44,26 @@ body {
     font-size: 2rem;
     color: #107BA0;
     font-family: 'Barlow';
+}
+
+.right .logo-container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .left, .separator {
+        display: none;
+    }
+
+    .right .logo-container {
+        display: block;
+    }
+
+    .right {
+        height: 80%;
+    }
+
+    .logo {
+        width: 40%;
+    }
 }
