@@ -122,4 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 LOGIN_REDIRECT_URL = '/onsite/home/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'presentations')
+MEDIA_URL = '/presentations/'

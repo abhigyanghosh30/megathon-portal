@@ -8,27 +8,33 @@ from .forms import SubmitForm
 # Create your views here.
 @login_required(login_url='/auth/login/')
 def home(request):
-    if request.method == 'POST':
-        form = SubmitForm(request.POST, request.FILES)
-
-        if form.is_valid():
-            user = request.user
-            if not hasattr(user, 'team'):
-                return HttpResponseRedirect(reverse('django.contrib.auth.views.logout'))
-            
-            team = user.team
-
-            team.presentation = request.FILES['presentation']
-            team.submission = form.cleaned_data['submission']
-
-            team.save()
+    user = request.user
+    if not hasattr(user, 'team'):
+        return HttpResponseRedirect(reverse('logout'))
+    team = user.team
     
-    else:
-        form = SubmitForm()
+    if team.problem == '':
+        return HttpResponseRedirect(reverse('portal:error'))
+
+    show_msg = False
+
+    if request.method == 'POST':
+        form = SubmitForm(request.POST, request.FILES, instance=team)
+
+        if form.is_valid():        
+           form.save()
+           show_msg = True
+    
+
+    form = SubmitForm(instance=team)
 
     context = {
         'form': form,
+        'show_msg': show_msg,
     }
 
     return render(request, 'portal/home.html', context)
 
+@login_required(login_url='/auth/login/')
+def error(request):
+    return HttpResponse('Your profile is improperly configured. Contact a member of our team now.')
