@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.conf import settings
+
 from .validators import FileValidator
+from .storage import OverwriteStorage
 
 import os
 
@@ -54,6 +56,6 @@ class Team(models.Model):
     file_validate = FileValidator(
         max_size=100*1024*1024, content_types=('application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'))
 
-    presentation = models.FileField(validators=[file_validate,], null=True, blank=True, upload_to=get_upload_path)
+    presentation = models.FileField(validators=[file_validate,], null=True, blank=True, upload_to=get_upload_path, storage=OverwriteStorage())
 
     submission = models.URLField(blank=True)
