@@ -57,7 +57,7 @@ class Team(models.Model):
     problem = models.CharField(max_length=3, choices=PROBLEM_STATEMENTS, blank=True)
 
     file_validate = FileValidator(
-        max_size=100*1024*1024, content_types=('application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'))
+        max_size=100*1024*1024, content_types=('application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'))
 
     presentation = models.FileField(validators=[file_validate,], null=True, blank=True, upload_to=get_upload_path, storage=OverwriteStorage())
 

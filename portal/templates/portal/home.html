@@ -9,7 +9,18 @@
     </p>
     <form action="{% url 'portal:home' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.non_field_errors }}
+        <div class=" form-group">
+            <label for="id_presentation">Your presentation file*:</label>
+            {{ form.presentation }}
+            {{ form.presentation.errors }}
+            <p>Max file size: 100 mB. Supported file types: pdf/ppt/pptx/ppts/pptsx</p>
+        </div>
+        <div class=" form-group">
+            <label for="id_submission">Link to your code: (optional)</label>
+            {{ form.submission }}
+            {{ form.submission.errors }}
+        </div>
         <input type="submit" value="Submit">
     </form>
 {% endblock %}
