@@ -1,0 +1,33 @@
+body {
+    background-color: #212121;
+}
+
+.card {
+    background-color: #18191a;
+    height: 75%;
+
+    border-radius: 2rem;
+    border: 2px solid #3b444c;
+}
+
+.full-page {
+    height: 100vh;
+}
+
+.row {
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo-container {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    height: 100%;
+    padding-bottom: 2rem;
+}

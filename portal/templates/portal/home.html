@@ -1,9 +1,15 @@
-<html>
-    <body>
-        <form action="{% url 'portal:home' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
-        </form>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <p>
+        Welcome {{ request.user.username }}
+    </p>
+    <p>
+        <a href="{% url 'logout' %}">Logout</a>
+    </p>
+    <form action="{% url 'portal:home' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

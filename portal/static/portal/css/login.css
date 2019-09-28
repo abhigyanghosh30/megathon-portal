@@ -1,0 +1,69 @@
+body {
+    background-color: #212121;
+}
+
+.left {
+    background-color: #18191a;
+    height: 75%;
+
+    border-radius: 2rem;
+    border: 2px solid #3b444c;
+}
+
+.right {
+    background-color: #18191a;
+    height: 75%;
+
+    border-radius: 2rem;
+    border: 2px solid #3b444c;
+}
+
+.full-page {
+    height: 100vh;
+}
+
+.row {
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    width: 60%;
+    padding-bottom: 2rem;
+}
+
+.logo-text {
+    font-size: 2rem;
+    color: #107BA0;
+    font-family: 'Barlow';
+}
+
+.right .logo-container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .left, .separator {
+        display: none;
+    }
+
+    .right .logo-container {
+        display: block;
+    }
+
+    .right {
+        height: 80%;
+    }
+
+    .logo {
+        width: 40%;
+    }
+}
