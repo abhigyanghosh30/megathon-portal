@@ -1,26 +1,42 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <p>
+<div class="row m-2 headers">
+    <div class="col-5">
         Welcome {{ request.user.username }}
-    </p>
-    <p>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-5">
         <a href="{% url 'logout' %}">Logout</a>
-    </p>
+    </div>
+</div>
+
+<div class="cls">
     <form action="{% url 'portal:home' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.non_field_errors }}
-        <div class=" form-group">
-            <label for="id_presentation">Your presentation file*:</label>
+        <div class="form-group presfile">
+            <label for="id_presentation">Your presentation file (required):</label>
+            <br/>
             {{ form.presentation }}
             {{ form.presentation.errors }}
-            <p>Max file size: 100 mB. Supported file types: pdf/ppt/pptx/ppts/pptsx</p>
+            <br>
+            <p>Max file size: 100 mB. <br> Supported file types: pdf/ppt/pptx/ppts/pptsx</p>
         </div>
-        <div class=" form-group">
+        <div class="form-group">
             <label for="id_submission">Link to your code: (optional)</label>
             {{ form.submission }}
             {{ form.submission.errors }}
         </div>
-        <input type="submit" value="Submit">
+        <input class="btn btn-primary" type="submit" value="Submit">
     </form>
+</div>
+
+    <script>
+        window.onload = function(){
+            var pres = document.querySelector("presfile");
+            pres.innerHTML = pres.innerHTML.replace(/\s+currently\s+/i, "");
+        };
+    </script>
+
 {% endblock %}

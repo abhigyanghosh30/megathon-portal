@@ -59,6 +59,16 @@ flex-direction: column;
     display: none;
 }
 
+ a{
+        color: #5aced0 !important;
+        text-decoration: underline !important;
+}
+
+.headers{
+    font-size: 1.1rem;
+}
+
+
 @media (max-width: 768px) {
     .left, .separator {
         display: none;
@@ -75,4 +85,13 @@ flex-direction: column;
     .logo {
         width: 40%;
     }
+}
+
+.btn-primary
+{
+    background-color: #40a4af !important;
+}
+.btn-primary:hover
+{
+    background-color: #297ba0 !important;
 }

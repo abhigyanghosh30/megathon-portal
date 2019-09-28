@@ -35,7 +35,12 @@
       var inputs = document.querySelectorAll("input");
 
       for(let input of inputs){
-        input.classList.add("form-control");
+        if(input.type == "file")
+        input.classList.add("form-control-file");
+        else if(input.type != "checkbox")
+          input.classList.add("form-control"); 
+        // else 
+        // input.classList.add("form-check-input");
       }
     });
   </script>

@@ -12,7 +12,7 @@ def home(request):
     if not hasattr(user, 'team'):
         return HttpResponseRedirect(reverse('logout'))
     team = user.team
-    
+
     if team.problem == '':
         return HttpResponseRedirect(reverse('portal:error'))
 
@@ -21,10 +21,10 @@ def home(request):
     if request.method == 'POST':
         form = SubmitForm(request.POST, request.FILES, instance=team)
 
-        if form.is_valid():        
-           form.save()
-           show_msg = True
-    
+        if form.is_valid():
+            form.save()
+            show_msg = True
+
 
     form = SubmitForm(instance=team)
 
@@ -37,4 +37,4 @@ def home(request):
 
 @login_required(login_url='/auth/login/')
 def error(request):
-    return HttpResponse('Your profile is improperly configured. Contact a member of our team now.')
+    return render(request, 'portal/error.html')
