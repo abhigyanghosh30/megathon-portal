@@ -23,7 +23,10 @@ class Participant(models.Model):
     phone = models.CharField(
         verbose_name="participant's phone", max_length=10, validators=[phone_validate])
 
-    college = models.CharField(verbose_name="participant's institution",max_length=1024, blank=True)
+    college = models.CharField(verbose_name="participant's institution", max_length=1024, blank=True)
+    
+    def __str__(self):
+        return self.name
 
 # Create your models here.
 class Team(models.Model):
@@ -59,3 +62,6 @@ class Team(models.Model):
     presentation = models.FileField(validators=[file_validate,], null=True, blank=True, upload_to=get_upload_path, storage=OverwriteStorage())
 
     submission = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.user.username

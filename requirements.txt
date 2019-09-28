@@ -1,4 +1,5 @@
 Django==2.2.5
+django-cleanup==4.0.0
 pkg-resources==0.0.0
 python-magic==0.4.15
 pytz==2019.2
