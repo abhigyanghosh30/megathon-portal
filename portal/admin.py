@@ -69,9 +69,9 @@ class TypeFilter(admin.SimpleListFilter):
 
     def queryset(self, request, queryset):
         if self.value() == '0':
-            return queryset.exclude(groups__name='Teams')
+            return queryset.filter(team=None)
         elif self.value() == '1':
-            return queryset.filter(groups__name='Teams')
+            return queryset.exclude(team=None)
 
 
 class TeamInline(admin.StackedInline):

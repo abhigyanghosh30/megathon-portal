@@ -31,12 +31,30 @@
         <input class="btn btn-primary" type="submit" value="Submit">
     </form>
 </div>
+{% endblock %}
 
-    <script>
-        window.onload = function(){
-            var pres = document.querySelector("presfile");
-            pres.innerHTML = pres.innerHTML.replace(/\s+currently\s+/i, "");
-        };
-    </script>
+{% block notif %}
+{% if show_msg %}
 
+<div aria-live="polite" style="color: white !important; position: absolute; top: 0; right: 0;">
+    <div class="toast" data-autohide="false">
+        <div class="toast-header">
+            <strong class="mr-auto">Megathon Submissions</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Your submission was successful.
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.toast').toast("show");
+    });
+</script>
+
+{% endif %}
 {% endblock %}

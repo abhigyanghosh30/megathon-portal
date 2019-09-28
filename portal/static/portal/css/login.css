@@ -95,3 +95,7 @@ flex-direction: column;
 {
     background-color: #297ba0 !important;
 }
+
+.toast-body {
+    color: #212529 !important;
+}
