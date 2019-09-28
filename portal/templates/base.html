@@ -29,5 +29,15 @@
       </div>
     </div>
   </div>
+
+  <script>
+    window.addEventListener("load", function(){
+      var inputs = document.querySelectorAll("input");
+
+      for(let input of inputs){
+        input.classList.add("form-control");
+      }
+    });
+  </script>
 </body>
 </html>

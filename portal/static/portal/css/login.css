@@ -16,6 +16,7 @@ body {
 
     border-radius: 2rem;
     border: 2px solid #3b444c;
+    color: white !important;
 }
 
 .full-page {
@@ -25,6 +26,14 @@ body {
 .row {
     align-items: center;
     margin: 0 auto;
+}
+
+.cls{
+    height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 }
 
 .logo-container {
