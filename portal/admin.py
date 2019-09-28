@@ -77,6 +77,11 @@ class TypeFilter(admin.SimpleListFilter):
 class TeamInline(admin.StackedInline):
     model = Team
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name in ['participant1', 'participant2', 'participant3', 'participant4']:
+            kwargs["queryset"] = Participant.objects.order_by('name')
+        return super(TeamInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
 
 class CustomUserAdmin(UserAdmin):
     inlines = (TeamInline,)
