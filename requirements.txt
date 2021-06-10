@@ -1,4 +1,4 @@
-Django==2.1
+Django==2.2.24
 django-cleanup==4.0.0
 python-magic==0.4.15
 pytz==2019.2
